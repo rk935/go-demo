@@ -1,17 +1,17 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
-	"github.com/robfig/cron/v3"
+	_ "github.com/robfig/cron/v3"
 )
 
-func start_cron() {
-
-}
-
 func main() {
-	c := cron.New(cron.WithSeconds())
-	c.AddFunc("* * * * * *", func() { fmt.Println("OK") })
-	c.Start()
-	select {}
+	s1 := "hello"
+	s2 := "world"
+
+	var bt bytes.Buffer
+	bt.WriteString(s1)
+	bt.WriteString(s2)
+	fmt.Println("result: ", bt.String())
 }
