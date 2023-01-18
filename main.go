@@ -9,7 +9,6 @@ import (
 
 func main() {
 	var cb address.ContactBook
-
 	p1 := address.Person{
 		Name:   "小王子",
 		Gender: address.GenderType_MALE,
@@ -25,6 +24,7 @@ func main() {
 		fmt.Printf("marshal failed,err:%v\n", err)
 		return
 	}
+	fmt.Println("data: ", data)
 	ioutil.WriteFile("./proto.dat", data, 0644)
 
 	data2, err := ioutil.ReadFile("./proto.dat")
